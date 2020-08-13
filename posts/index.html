@@ -261,14 +261,12 @@ if (!doNotTrack) {
                     <div class="col-12 col-lg-12 d-inline-block">
                         <div class="d-inline-block mb-1">
                             <h3>
-                                <a href="https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/"></a>
+                                <a href="https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/">mybatis使用指南</a>
                             </h3>
                         </div>
 
                         <div name="posts-post" class="text-gray mb-2 pr-4">
-                            mybatis使用指南 mybatis中文文档
- 前置工作
- 1.1 首先导入依赖 &lt;dependency&gt; &lt;groupId&gt;org.mybatis&lt;/groupId&gt; &lt;artifactId&gt;mybatis&lt;/artifactId&gt; &lt;version&gt;3.5.4&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;8.0.20&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;junit&lt;/groupId&gt; &lt;artifactId&gt;junit&lt;/artifactId&gt; &lt;version&gt;4.12&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt; 1.2 编写核心配置文件 &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt; &lt;!DOCTYPE configuration PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34; &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt; &lt;configuration&gt; &lt;environments default=&#34;development&#34;&gt; &lt;environment id=&#34;development&#34;&gt; &lt;transactionManager type=&#34;JDBC&#34;/&gt; &lt;dataSource type=&#34;POOLED&#34;&gt; &lt;property name=&#34;driver&#34; value=&#34;com.mysql.cj.jdbc.Driver&#34;/&gt; &lt;property name=&#34;url&#34; value=&#34;jdbc:mysql://localhost:3306/school?useSSL=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;serverTimezone=GMT%2B8&#34;/&gt; &lt;property name=&#34;username&#34; value=&#34;root&#34;/&gt; &lt;property name=&#34;password&#34; value=&#34;kong&#34;/&gt; &lt;/dataSource&gt; &lt;/environment&gt; &lt;/environments&gt; &lt;mappers&gt; &lt;mapper resource=&#34;Mapper/UserDaoMapper.xml&#34;&gt;&lt;/mapper&gt; &lt;/mappers&gt; &lt;/configuration&gt; 1.3 书写工具类 public class MybatisUtils { // 定义一个sqlsession的工程类  private static SqlSessionFactory sqlSessionFactory; static { try { // 第一步，获取sqlsessionFactory对象  String resource=&#34;mybatis-config.
+                            有关mybatis的一些依赖和配置文件
                         </div>
 
                         <div class="f6 text-gray mt-2">
@@ -283,12 +281,12 @@ if (!doNotTrack) {
                     <div class="col-12 col-lg-12 d-inline-block">
                         <div class="d-inline-block mb-1">
                             <h3>
-                                <a href="https://Ahui517.github.io/posts/first-blog/"></a>
+                                <a href="https://Ahui517.github.io/posts/first-blog/">我的第一篇博客</a>
                             </h3>
                         </div>
 
                         <div name="posts-post" class="text-gray mb-2 pr-4">
-                            我的第一篇博客 这篇博客用来测试
+                            做个测试而已
                         </div>
 
                         <div class="f6 text-gray mt-2">

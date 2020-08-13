@@ -270,13 +270,11 @@ if (!doNotTrack) {
                                             d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z" />
                                     </svg>
                                     <a href="https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/" class="text-bold flex-auto min-width-0 ">
-                                        <span class="repo js-pinnable-item" title=""></span>
+                                        <span class="repo js-pinnable-item" title="mybatis使用指南">mybatis使用指南</span>
                                     </a>
                                 </div>
                                 <div class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                                    mybatis使用指南 mybatis中文文档
- 前置工作
- 1.1 首先导入依赖 &lt;dependency&gt; &lt;groupId&gt;org.mybatis&lt;/groupId&gt; &lt;artifactId&gt;mybatis&lt;/artifactId&gt; &lt;version&gt;3.5.4&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;8.0.20&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;junit&lt;/groupId&gt; &lt;artifactId&gt;junit&lt;/artifactId&gt; &lt;version&gt;4.12&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt; 1.2 编写核心配置文件 &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt; &lt;!DOCTYPE configuration PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34; &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt; &lt;configuration&gt; &lt;environments default=&#34;development&#34;&gt; &lt;environment id=&#34;development&#34;&gt; &lt;transactionManager type=&#34;JDBC&#34;/&gt; &lt;dataSource type=&#34;POOLED&#34;&gt; &lt;property name=&#34;driver&#34; value=&#34;com.mysql.cj.jdbc.Driver&#34;/&gt; &lt;property name=&#34;url&#34; value=&#34;jdbc:mysql://localhost:3306/school?useSSL=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;serverTimezone=GMT%2B8&#34;/&gt; &lt;property name=&#34;username&#34; value=&#34;root&#34;/&gt; &lt;property name=&#34;password&#34; value=&#34;kong&#34;/&gt; &lt;/dataSource&gt; &lt;/environment&gt; &lt;/environments&gt; &lt;mappers&gt; &lt;mapper resource=&#34;Mapper/UserDaoMapper.xml&#34;&gt;&lt;/mapper&gt; &lt;/mappers&gt; &lt;/configuration&gt; 1.3 书写工具类 public class MybatisUtils { // 定义一个sqlsession的工程类  private static SqlSessionFactory sqlSessionFactory; static { try { // 第一步，获取sqlsessionFactory对象  String resource=&#34;mybatis-config.
+                                    有关mybatis的一些依赖和配置文件
                                 </div>
                                 <div class="f6 text-gray mt-2">
                                     Updated <relative-time datetime="2020-08-13"
@@ -298,11 +296,11 @@ if (!doNotTrack) {
                                             d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z" />
                                     </svg>
                                     <a href="https://Ahui517.github.io/posts/first-blog/" class="text-bold flex-auto min-width-0 ">
-                                        <span class="repo js-pinnable-item" title=""></span>
+                                        <span class="repo js-pinnable-item" title="我的第一篇博客">我的第一篇博客</span>
                                     </a>
                                 </div>
                                 <div class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                                    我的第一篇博客 这篇博客用来测试
+                                    做个测试而已
                                 </div>
                                 <div class="f6 text-gray mt-2">
                                     Updated <relative-time datetime="2020-08-13"
@@ -320,13 +318,13 @@ if (!doNotTrack) {
         
         <div id="contributions" data='[
 {
-    "title": "",
+    "title": "mybatis%e4%bd%bf%e7%94%a8%e6%8c%87%e5%8d%97",
     "link": "https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/",
     "publishDate": "2020-08-13%2021:30:03"
 },
 
 {
-    "title": "",
+    "title": "%e6%88%91%e7%9a%84%e7%ac%ac%e4%b8%80%e7%af%87%e5%8d%9a%e5%ae%a2",
     "link": "https://Ahui517.github.io/posts/first-blog/",
     "publishDate": "2020-08-13%2020:10:56"
 }
