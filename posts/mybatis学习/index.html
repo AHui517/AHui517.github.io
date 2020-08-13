@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://Ahui517.github.io/css/frameworks.css" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://Ahui517.github.io/css/github.css" />
+    
+    <link crossorigin="anonymous" media="(prefers-color-scheme: dark)" rel="stylesheet"
+        href="https://Ahui517.github.io/css/dark.css" />
+    
+    <meta name="viewport" content="width=device-width">
+    <meta name="description"
+        content="mybatis使用指南 mybatis中文文档
+ 前置工作
+ 1.1 首先导入依赖 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;8.0.20&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; 1.2 编写核心配置文件 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE configuration PUBLIC &amp;#34;-//mybatis.org//DTD Config 3.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-3-config.dtd&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;environments default=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;environment id=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;transactionManager type=&amp;#34;JDBC&amp;#34;/&amp;gt; &amp;lt;dataSource type=&amp;#34;POOLED&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;driver&amp;#34; value=&amp;#34;com.mysql.cj.jdbc.Driver&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/school?useSSL=true&amp;amp;amp;useUnicode=true&amp;amp;amp;characterEncoding=utf-8&amp;amp;amp;serverTimezone=GMT%2B8&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;kong&amp;#34;/&amp;gt; &amp;lt;/dataSource&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;mappers&amp;gt; &amp;lt;mapper resource=&amp;#34;Mapper/UserDaoMapper.xml&amp;#34;&amp;gt;&amp;lt;/mapper&amp;gt; &amp;lt;/mappers&amp;gt; &amp;lt;/configuration&amp;gt; 1.3 书写工具类 public class MybatisUtils { // 定义一个sqlsession的工程类  private static SqlSessionFactory sqlSessionFactory; static { try { // 第一步，获取sqlsessionFactory对象  String resource=&amp;#34;mybatis-config." />
+    <meta name="keywords"
+        content=", " />
+    <meta name="robots" content="noodp" />
+    <link rel="canonical" href="https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/" />
+
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content=" - GitHub Style" />
+    <meta name="twitter:description"
+        content="mybatis使用指南 mybatis中文文档
+ 前置工作
+ 1.1 首先导入依赖 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;8.0.20&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; 1.2 编写核心配置文件 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE configuration PUBLIC &amp;#34;-//mybatis.org//DTD Config 3.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-3-config.dtd&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;environments default=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;environment id=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;transactionManager type=&amp;#34;JDBC&amp;#34;/&amp;gt; &amp;lt;dataSource type=&amp;#34;POOLED&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;driver&amp;#34; value=&amp;#34;com.mysql.cj.jdbc.Driver&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/school?useSSL=true&amp;amp;amp;useUnicode=true&amp;amp;amp;characterEncoding=utf-8&amp;amp;amp;serverTimezone=GMT%2B8&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;kong&amp;#34;/&amp;gt; &amp;lt;/dataSource&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;mappers&amp;gt; &amp;lt;mapper resource=&amp;#34;Mapper/UserDaoMapper.xml&amp;#34;&amp;gt;&amp;lt;/mapper&amp;gt; &amp;lt;/mappers&amp;gt; &amp;lt;/configuration&amp;gt; 1.3 书写工具类 public class MybatisUtils { // 定义一个sqlsession的工程类  private static SqlSessionFactory sqlSessionFactory; static { try { // 第一步，获取sqlsessionFactory对象  String resource=&amp;#34;mybatis-config." />
+    <meta name="twitter:site" content="https://Ahui517.github.io/" />
+    <meta name="twitter:creator" content="" />
+    <meta name="twitter:image"
+        content="https://Ahui517.github.io/">
+
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content=" - GitHub Style">
+    <meta property="og:description"
+        content="mybatis使用指南 mybatis中文文档
+ 前置工作
+ 1.1 首先导入依赖 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;8.0.20&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; 1.2 编写核心配置文件 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE configuration PUBLIC &amp;#34;-//mybatis.org//DTD Config 3.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-3-config.dtd&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;environments default=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;environment id=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;transactionManager type=&amp;#34;JDBC&amp;#34;/&amp;gt; &amp;lt;dataSource type=&amp;#34;POOLED&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;driver&amp;#34; value=&amp;#34;com.mysql.cj.jdbc.Driver&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/school?useSSL=true&amp;amp;amp;useUnicode=true&amp;amp;amp;characterEncoding=utf-8&amp;amp;amp;serverTimezone=GMT%2B8&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;kong&amp;#34;/&amp;gt; &amp;lt;/dataSource&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;mappers&amp;gt; &amp;lt;mapper resource=&amp;#34;Mapper/UserDaoMapper.xml&amp;#34;&amp;gt;&amp;lt;/mapper&amp;gt; &amp;lt;/mappers&amp;gt; &amp;lt;/configuration&amp;gt; 1.3 书写工具类 public class MybatisUtils { // 定义一个sqlsession的工程类  private static SqlSessionFactory sqlSessionFactory; static { try { // 第一步，获取sqlsessionFactory对象  String resource=&amp;#34;mybatis-config." />
+    <meta property="og:url" content="https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:image"
+        content="https://Ahui517.github.io/">
+    <meta property="og:image:width" content="2048">
+    <meta property="og:image:height" content="1024">
+    
+    <meta property="article:published_time" content="2020-08-13 21:30:03 &#43;0800 CST" />
+    
+
+    
+    
+
+    
+    
+
+    <title> - GitHub Style</title>
+
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://Ahui517.github.io/images/favicon.ico">
+    <meta name="theme-color" content="#1e2327">
+
+    
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-456-789', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+<body class="env-production emoji-size-boost page-responsive page-profile">
+  <div class="position-relative js-header-wrapper ">
+    <span class="Progress progress-pjax-loader position-fixed width-full js-pjax-loader-bar">
+        <span class="progress-pjax-loader-bar top-0 left-0" style="width: 0%;"></span>
+    </span>
+    <header class="Header py-lg-0 js-details-container Details flex-wrap flex-lg-nowrap p-responsive" role="banner">
+        <div class="Header-item d-none d-lg-flex">
+            <a class="Header-link" href="https://Ahui517.github.io/" aria-label="Homepage"
+                data-ga-click="Header, go to dashboard, icon:logo">
+                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+                    width="32" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+            </a>
+        </div>
+        <div
+            class="Header-item Header-item--full flex-column flex-lg-row width-full flex-order-2 flex-lg-order-none mr-0 mr-lg-3 mt-3 mt-lg-0 Details-content--hidden">
+            <div class="header-search flex-self-stretch flex-lg-self-auto mr-0 mr-lg-3 mb-3 mb-lg-0 scoped-search site-scoped-search js-site-search position-relative js-jump-to"
+                role="combobox" aria-owns="jump-to-results" aria-label="Search or jump to" aria-haspopup="listbox"
+                aria-expanded="false">
+                <div class="position-relative">
+                </div>
+            </div>
+        </div>
+        <nav class="d-flex" aria-label="Global">
+            <a class="js-selected-navigation-item Header-link py-lg-3">&nbsp;</a>
+        </nav>
+        <div class="Header-item Header-item--full flex-justify-center d-lg-none position-relative" style="margin-right: auto;">
+            <a class="Header-link" href="https://Ahui517.github.io/" aria-label="Homepage"
+                data-ga-click="Header, go to dashboard, icon:logo">
+                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+                    width="32" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+            </a>
+        </div>
+        <div class="Header-item position-relative mr-0 d-none d-lg-flex">
+            <details class="details-overlay details-reset">
+                <summary class="Header-link" aria-label="View profile and more"
+                    data-ga-click="Header, show menu, icon:avatar">
+                    
+                    <img alt="" class="avatar" src="https://cdn.pixabay.com/photo/2020/08/07/21/53/sunset-5471699_960_720.jpg" height="20" width="20">
+                    
+                </summary>
+            </details>
+        </div>
+    </header>
+</div>
+
+<div id="start-of-content" class="show-on-focus"></div>
+<div id="js-flash-container">
+</div>
+
+  
+<div class="application-main " data-commit-hovercards-enabled="">
+    <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+        <main>
+            <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav pt-0 pt-lg-4 ">
+                <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
+                    <div class="mb-3 d-flex">
+                        <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
+                            <a class="avatar mr-1" href="https://Ahui517.github.io/about/">
+                                
+
+                                <img src="https://cdn.pixabay.com/photo/2020/08/07/21/53/sunset-5471699_960_720.jpg" width="26" height="26">
+                                
+                            </a>
+                            <span class="author"><a href="https://Ahui517.github.io/">辉</a></span>
+                            <span class="path-divider">/</span>
+                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
+                                    href="https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/"></a></strong>
+
+                            <div class="d-block text-small text-gray">
+                                Created <time-ago datetime="2020-08-13" class="no-wrap"
+                                    title="Created at 2020/08/13">
+                                    2020-08-13</time-ago>
+                                <span class="file-info-divider"></span>
+                                Modified <time-ago datetime="2020-08-13" class="no-wrap"
+                                    title="Modified  at 2020/08/13">
+                                    2020-08-13</time-ago>
+                            </div>
+                        </h1>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
+                <div class="repository-content ">
+                    <div class="Box mt-3 position-relative">
+                        <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
+                            <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                                625 Words
+                                
+                            </div>
+                        </div>
+
+                        <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
+                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text"><h3 id="mybatis使用指南">mybatis使用指南</h3>
+<p><a href="https://mybatis.org/mybatis-3/zh/index.html">mybatis中文文档</a></p>
+<blockquote>
+<p>前置工作</p>
+</blockquote>
+<h5 id="11-首先导入依赖">1.1 首先导入依赖</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">		<span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.mybatis<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>mybatis<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>3.5.4<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>mysql<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>mysql-connector-java<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>8.0.20<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>junit<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>junit<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>4.12<span style="color:#f92672">&lt;/version&gt;</span>
+            <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+ 		<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><h5 id="12-编写核心配置文件">1.2 编写核心配置文件</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE configuration
+</span><span style="color:#75715e">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;
+</span><span style="color:#75715e">        &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;configuration&gt;</span>
+    <span style="color:#f92672">&lt;environments</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;development&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;environment</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;development&#34;</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;transactionManager</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;JDBC&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;dataSource</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;POOLED&#34;</span><span style="color:#f92672">&gt;</span>
+                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driver&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;com.mysql.cj.jdbc.Driver&#34;</span><span style="color:#f92672">/&gt;</span>
+                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/school?useSSL=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;serverTimezone=GMT%2B8&#34;</span><span style="color:#f92672">/&gt;</span>
+                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">/&gt;</span>
+                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;kong&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;/dataSource&gt;</span>
+        <span style="color:#f92672">&lt;/environment&gt;</span>
+    <span style="color:#f92672">&lt;/environments&gt;</span>
+    
+    <span style="color:#f92672">&lt;mappers&gt;</span>
+        <span style="color:#f92672">&lt;mapper</span> <span style="color:#a6e22e">resource=</span><span style="color:#e6db74">&#34;Mapper/UserDaoMapper.xml&#34;</span><span style="color:#f92672">&gt;&lt;/mapper&gt;</span>
+    <span style="color:#f92672">&lt;/mappers&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div><h5 id="13-书写工具类">1.3 书写工具类</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MybatisUtils</span> <span style="color:#f92672">{</span>
+<span style="color:#75715e">//    定义一个sqlsession的工程类
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> SqlSessionFactory sqlSessionFactory<span style="color:#f92672">;</span>
+    
+    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+<span style="color:#75715e">//            第一步，获取sqlsessionFactory对象
+</span><span style="color:#75715e"></span>            String resource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mybatis-config.xml&#34;</span><span style="color:#f92672">;</span>
+            InputStream inputStream <span style="color:#f92672">=</span> Resources<span style="color:#f92672">.</span><span style="color:#a6e22e">getResourceAsStream</span><span style="color:#f92672">(</span>resource<span style="color:#f92672">);</span>
+            sqlSessionFactory<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> SqlSessionFactoryBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span>inputStream<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">){</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    
+<span style="color:#75715e">//    定义一个由工厂获取sqlsession的方法
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> SqlSession <span style="color:#a6e22e">getSqlSession</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> sqlSessionFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">openSession</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
+<p>编写代码</p>
+</blockquote>
+<h5 id="14-操作">1.4 操作</h5>
+<ul>
+<li>
+<p>实体类</p>
+<p><code>与数据库一一对应,有参、无参构造方法,get、set方法</code></p>
+</li>
+</ul>
+<ul>
+<li>Dao接口</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserDao</span> <span style="color:#f92672">{</span>
+    List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllUser</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>实现类为一个Mapper配置文件</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE mapper
+</span><span style="color:#75715e">        PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;
+</span><span style="color:#75715e">        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;mapper</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;com.kong.dao.UserDao&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;getAllUser&#34;</span> <span style="color:#a6e22e">resultType=</span><span style="color:#e6db74">&#34;com.kong.domain.User&#34;</span><span style="color:#f92672">&gt;</span>
+        select * from  user
+  <span style="color:#f92672">&lt;/select&gt;</span>
+<span style="color:#f92672">&lt;/mapper&gt;</span>
+</code></pre></div><h5 id="21-spring整合mybatis">2.1 spring整合mybatis</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">spring配置数据源
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.jdbc.datasource.DriverManagerDataSource&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driverClassName&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;com.mysql.cj.jdbc.Driver&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/school?useSSL=false&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;serverTimezone=GMT%2B8&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;kong&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+<span style="color:#75715e">&lt;!--注入sqlSessionFatory--&gt;</span>
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sqlSessionFactory&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.mybatis.spring.SqlSessionFactoryBean&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#75715e">&lt;!--加载mybatis配置文件--&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;configLocation&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;classpath:mybatis-config.xml&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+    <span style="color:#75715e">&lt;!--加载接口映射文件--&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;mapperLocations&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Mapper/UserDaoMapper.xml&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+注入sqlSession，这里是用SqlSessionTemplate
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sqlSession&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.mybatis.spring.SqlSessionTemplate&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;constructor-arg</span> <span style="color:#a6e22e">index=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;sqlSessionFactory&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+注入接口实现类
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userMapper&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.kong.study2.dao.UserDaoImp&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;sqlSessionTemplate&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;sqlSession&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+
+</code></pre></div><p><code>接口实现类</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDaoImp</span> <span style="color:#66d9ef">implements</span> UserDao<span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> SqlSessionTemplate sqlSessionTemplate<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setSqlSessionTemplate</span><span style="color:#f92672">(</span>SqlSessionTemplate sqlSessionTemplate<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sqlSessionTemplate</span> <span style="color:#f92672">=</span> sqlSessionTemplate<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllUser</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        UserDao mapper <span style="color:#f92672">=</span> sqlSessionTemplate<span style="color:#f92672">.</span><span style="color:#a6e22e">getMapper</span><span style="color:#f92672">(</span>UserDao<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> allUser <span style="color:#f92672">=</span> mapper<span style="color:#f92672">.</span><span style="color:#a6e22e">findAllUser</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">return</span> allUser<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h5 id="22配置声明式事物">2.2配置声明式事物</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!--    配置事务--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.jdbc.datasource.DataSourceTransactionManager&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;constructor-arg</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+<span style="color:#75715e">&lt;!--    aop实现事物织入--&gt;</span>
+<span style="color:#75715e">&lt;!--    配置事物的通知--&gt;</span>
+    <span style="color:#f92672">&lt;tx:advice</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;txAdvice&#34;</span> <span style="color:#a6e22e">transaction-manager=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;tx:attributes&gt;</span>
+            <span style="color:#f92672">&lt;tx:method</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;add*&#34;</span> <span style="color:#a6e22e">propagation=</span><span style="color:#e6db74">&#34;REQUIRED&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;tx:method</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;delete*&#34;</span> <span style="color:#a6e22e">propagation=</span><span style="color:#e6db74">&#34;REQUIRED&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;tx:method</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;update*&#34;</span> <span style="color:#a6e22e">propagation=</span><span style="color:#e6db74">&#34;REQUIRED&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;tx:method</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;query*&#34;</span> <span style="color:#a6e22e">read-only=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;tx:method</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#a6e22e">propagation=</span><span style="color:#e6db74">&#34;REQUIRED&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;/tx:attributes&gt;</span>
+    <span style="color:#f92672">&lt;/tx:advice&gt;</span>
+
+<span style="color:#75715e">&lt;!--    配置事物切入--&gt;</span>
+    <span style="color:#f92672">&lt;aop:config&gt;</span>
+        <span style="color:#f92672">&lt;aop:pointcut</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;txPointCut&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;execution(* com.kong.dao.*.*(..))&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;aop:advisor</span> <span style="color:#a6e22e">advice-ref=</span><span style="color:#e6db74">&#34;txAdvice&#34;</span> <span style="color:#a6e22e">pointcut-ref=</span><span style="color:#e6db74">&#34;txPointCut&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/aop:config&gt;</span>
+</code></pre></div></article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<div class="utterances"></div>
+
+<script>
+    var systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    var systemTheme = systemThemeMediaQuery.matches ? 'dark' : 'light';
+    var utterancesTheme = systemTheme === 'dark' ? 'github-dark' : 'github-light';
+    var utterancesScript = document.createElement('script');
+    utterancesScript.src = 'https://utteranc.es/client.js';
+    utterancesScript.setAttribute('repo', 'Ahui517\/AHui517.github.io');
+    utterancesScript.setAttribute('issue-term', 'title');
+    utterancesScript.setAttribute('theme', utterancesTheme);
+    utterancesScript.setAttribute('crossorigin', 'anonymous');
+    utterancesScript.setAttribute('async', '');
+    document.querySelector('.utterances').appendChild(utterancesScript);
+</script>
+<noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  <div class="footer container-lg width-full p-responsive" role="contentinfo">
+    <div
+        class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+        <ul
+            class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+            <li class="mr-3 mr-lg-0">© 2020. Theme by <a href="https://github.com/MeiK2333/github-style"><span>github-style</span></a></a></li>
+        </ul>
+
+        <a aria-label="Homepage" title="GitHub Style" class="footer-octicon d-none d-lg-block mx-lg-4"
+            href="https://Ahui517.github.io/">
+            <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24"
+                aria-hidden="true">
+                <path fill-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                </path>
+            </svg>
+        </a>
+        <ul
+            class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+        </ul>
+    </div>
+    <div class="d-flex flex-justify-center pb-6">
+        <span class="f6 text-gray-light"></span>
+    </div>
+</div>
+
+<script crossorigin="anonymous"
+    type="application/javascript" src="https://Ahui517.github.io/js/frameworks.js"></script>
+
+<script crossorigin="anonymous"
+    type="application/javascript" src="https://Ahui517.github.io/js/github-bootstrap.js"></script>
+<script src="https://Ahui517.github.io/js/stop.js"></script>
+<script src="https://Ahui517.github.io/js/contributions.js"></script>
+
+</body>
+
+</html>

@@ -5,11 +5,22 @@
     <link>https://Ahui517.github.io/</link>
     <description>Recent content on GitHub Style</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>© 2019. Theme by &lt;a href=&#34;https://github.com/MeiK2333/github-style&#34;&gt;&lt;span&gt;github-style&lt;/span&gt;&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 13 Aug 2020 20:10:56 +0800</lastBuildDate>
+    <copyright>© 2020. Theme by &lt;a href=&#34;https://github.com/MeiK2333/github-style&#34;&gt;&lt;span&gt;github-style&lt;/span&gt;&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 13 Aug 2020 21:30:03 +0800</lastBuildDate>
     
 	<atom:link href="https://Ahui517.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Thu, 13 Aug 2020 21:30:03 +0800</pubDate>
+      
+      <guid>https://Ahui517.github.io/posts/mybatis%E5%AD%A6%E4%B9%A0/</guid>
+      <description>mybatis使用指南 mybatis中文文档
+ 前置工作
+ 1.1 首先导入依赖 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;8.0.20&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; 1.2 编写核心配置文件 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE configuration PUBLIC &amp;#34;-//mybatis.org//DTD Config 3.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-3-config.dtd&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;environments default=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;environment id=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;transactionManager type=&amp;#34;JDBC&amp;#34;/&amp;gt; &amp;lt;dataSource type=&amp;#34;POOLED&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;driver&amp;#34; value=&amp;#34;com.mysql.cj.jdbc.Driver&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/school?useSSL=true&amp;amp;amp;useUnicode=true&amp;amp;amp;characterEncoding=utf-8&amp;amp;amp;serverTimezone=GMT%2B8&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;kong&amp;#34;/&amp;gt; &amp;lt;/dataSource&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;mappers&amp;gt; &amp;lt;mapper resource=&amp;#34;Mapper/UserDaoMapper.xml&amp;#34;&amp;gt;&amp;lt;/mapper&amp;gt; &amp;lt;/mappers&amp;gt; &amp;lt;/configuration&amp;gt; 1.3 书写工具类 public class MybatisUtils { // 定义一个sqlsession的工程类  private static SqlSessionFactory sqlSessionFactory; static { try { // 第一步，获取sqlsessionFactory对象  String resource=&amp;#34;mybatis-config.</description>
+    </item>
     
     <item>
       <title></title>
@@ -17,16 +28,16 @@
       <pubDate>Thu, 13 Aug 2020 20:10:56 +0800</pubDate>
       
       <guid>https://Ahui517.github.io/posts/first-blog/</guid>
-      <description>我的第一篇博客 </description>
+      <description>我的第一篇博客 这篇博客用来测试</description>
     </item>
     
     <item>
-      <title></title>
+      <title>personal website</title>
       <link>https://Ahui517.github.io/about/</link>
       <pubDate>Thu, 13 Aug 2020 20:00:30 +0800</pubDate>
       
       <guid>https://Ahui517.github.io/about/</guid>
-      <description>about界面</description>
+      <description>personal website 这里是阿辉的个人博客，我想在这记录我的学习，和一些技术的总结  今天是2020-8-13  System.out.println(&amp;#34;good luck&amp;#34;) </description>
     </item>
     
   </channel>
