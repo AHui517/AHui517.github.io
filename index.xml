@@ -2,49 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GitHub Style</title>
-    <link>/</link>
+    <link>https://example.com/</link>
     <description>Recent content on GitHub Style</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>© 2020. Theme by &lt;a href=&#34;https://github.com/MeiK2333/github-style&#34;&gt;&lt;span&gt;github-style&lt;/span&gt;&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 13 Aug 2020 14:34:16 +0800</lastBuildDate>
+    <copyright>© 2019. Theme by &lt;a href=&#34;https://github.com/MeiK2333/github-style&#34;&gt;&lt;span&gt;github-style&lt;/span&gt;&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 13 Aug 2020 17:19:55 +0800</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Thu, 13 Aug 2020 14:39:15 +0800</pubDate>
-      
-      <guid>/about/</guid>
-      <description>该个人网站建立于2020-8-12，主要用来记录自己的学习历程和一些学习心得！ System.out.prinln(&amp;#34;Good Luck&amp;#34;); </description>
-    </item>
     
     <item>
       <title>Helloworld</title>
-      <link>/posts/helloworld/</link>
-      <pubDate>Thu, 13 Aug 2020 14:34:16 +0800</pubDate>
+      <link>https://example.com/posts/helloworld/</link>
+      <pubDate>Thu, 13 Aug 2020 17:19:55 +0800</pubDate>
       
-      <guid>/posts/helloworld/</guid>
-      <description>mybatis学习心得 ​	mybatis是一个位于持久层的框架，这个框架是我们从</description>
+      <guid>https://example.com/posts/helloworld/</guid>
+      <description>hello world</description>
     </item>
     
     <item>
-      <title>Myfirst</title>
-      <link>/post/myfirst/</link>
-      <pubDate>Thu, 13 Aug 2020 13:08:04 +0800</pubDate>
+      <title>About</title>
+      <link>https://example.com/about/</link>
+      <pubDate>Thu, 13 Aug 2020 17:14:15 +0800</pubDate>
       
-      <guid>/post/myfirst/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Links</title>
-      <link>/links/</link>
-      <pubDate>Thu, 13 Aug 2020 13:05:27 +0800</pubDate>
-      
-      <guid>/links/</guid>
-      <description></description>
+      <guid>https://example.com/about/</guid>
+      <description>这是我的个人网站，用来记录我的学习心得和人生经历 System.out.println(&amp;#34;good luck&amp;#34;) </description>
     </item>
     
   </channel>
