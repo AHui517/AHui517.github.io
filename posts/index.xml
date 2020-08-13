@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on GitHub Style</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on GitHub Style</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© 2020. Theme by &lt;a href=&#34;https://github.com/MeiK2333/github-style&#34;&gt;&lt;span&gt;github-style&lt;/span&gt;&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 13 Aug 2020 14:34:16 +0800</lastBuildDate>
+    
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Helloworld</title>
+      <link>/posts/helloworld/</link>
+      <pubDate>Thu, 13 Aug 2020 14:34:16 +0800</pubDate>
+      
+      <guid>/posts/helloworld/</guid>
+      <description>mybatis学习心得 ​	mybatis是一个位于持久层的框架，这个框架是我们从</description>
+    </item>
+    
+  </channel>
+</rss>
