@@ -6,10 +6,19 @@
     <description>Recent content in Posts on GitHub Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2020. Theme by &lt;a href=&#34;https://github.com/MeiK2333/github-style&#34;&gt;&lt;span&gt;github-style&lt;/span&gt;&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 13 Aug 2020 21:30:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2020 09:14:09 +0800</lastBuildDate>
     
 	<atom:link href="https://Ahui517.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数电快速入门</title>
+      <link>https://Ahui517.github.io/posts/%E6%95%B0%E7%94%B5/</link>
+      <pubDate>Wed, 26 Aug 2020 09:14:09 +0800</pubDate>
+      
+      <guid>https://Ahui517.github.io/posts/%E6%95%B0%E7%94%B5/</guid>
+      <description>预习计算机组成原理之前先搞一搞数电</description>
+    </item>
     
     <item>
       <title>mybatis使用指南</title>
