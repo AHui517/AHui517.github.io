@@ -6,10 +6,19 @@
     <description>Recent content in Posts on GitHub Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2020. Theme by &lt;a href=&#34;https://github.com/MeiK2333/github-style&#34;&gt;&lt;span&gt;github-style&lt;/span&gt;&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 26 Aug 2020 09:14:09 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 10:40:29 +0800</lastBuildDate>
     
 	<atom:link href="https://Ahui517.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>html回顾</title>
+      <link>https://Ahui517.github.io/posts/html/</link>
+      <pubDate>Sun, 13 Sep 2020 10:40:29 +0800</pubDate>
+      
+      <guid>https://Ahui517.github.io/posts/html/</guid>
+      <description>html的简单回顾</description>
+    </item>
     
     <item>
       <title>数电快速入门</title>
