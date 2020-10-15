@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://Ahui517.github.io/css/frameworks.css" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://Ahui517.github.io/css/github.css" />
+    
+    <link crossorigin="anonymous" media="(prefers-color-scheme: dark)" rel="stylesheet"
+        href="https://Ahui517.github.io/css/dark.css" />
+    
+    <meta name="viewport" content="width=device-width">
+    <meta name="description"
+        content="JavaScript的基础" />
+    <meta name="keywords"
+        content="k, v" />
+    <meta name="robots" content="noodp" />
+    <link rel="canonical" href="https://Ahui517.github.io/posts/js%E5%9F%BA%E7%A1%80/" />
+
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="js基础 - GitHub Style" />
+    <meta name="twitter:description"
+        content="JavaScript的基础" />
+    <meta name="twitter:site" content="https://Ahui517.github.io/" />
+    <meta name="twitter:creator" content="" />
+    <meta name="twitter:image"
+        content="https://Ahui517.github.io/nothing">
+
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="js基础 - GitHub Style">
+    <meta property="og:description"
+        content="JavaScript的基础" />
+    <meta property="og:url" content="https://Ahui517.github.io/posts/js%E5%9F%BA%E7%A1%80/" />
+    <meta property="og:site_name" content="js基础" />
+    <meta property="og:image"
+        content="https://Ahui517.github.io/nothing">
+    <meta property="og:image:width" content="2048">
+    <meta property="og:image:height" content="1024">
+    
+    <meta property="article:published_time" content="2020-10-15 23:42:37 &#43;0800 CST" />
+    
+
+    
+    
+
+    
+    
+
+    <title>js基础 - GitHub Style</title>
+
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://Ahui517.github.io/images/favicon.ico">
+    <meta name="theme-color" content="#1e2327">
+
+    
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-456-789', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+<body class="env-production emoji-size-boost page-responsive page-profile">
+  <div class="position-relative js-header-wrapper ">
+    <span class="Progress progress-pjax-loader position-fixed width-full js-pjax-loader-bar">
+        <span class="progress-pjax-loader-bar top-0 left-0" style="width: 0%;"></span>
+    </span>
+    <header class="Header py-lg-0 js-details-container Details flex-wrap flex-lg-nowrap p-responsive" role="banner">
+        <div class="Header-item d-none d-lg-flex">
+            <a class="Header-link" href="https://Ahui517.github.io/" aria-label="Homepage"
+                data-ga-click="Header, go to dashboard, icon:logo">
+                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+                    width="32" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+            </a>
+        </div>
+        <div
+            class="Header-item Header-item--full flex-column flex-lg-row width-full flex-order-2 flex-lg-order-none mr-0 mr-lg-3 mt-3 mt-lg-0 Details-content--hidden">
+            <div class="header-search flex-self-stretch flex-lg-self-auto mr-0 mr-lg-3 mb-3 mb-lg-0 scoped-search site-scoped-search js-site-search position-relative js-jump-to"
+                role="combobox" aria-owns="jump-to-results" aria-label="Search or jump to" aria-haspopup="listbox"
+                aria-expanded="false">
+                <div class="position-relative">
+                </div>
+            </div>
+        </div>
+        <nav class="d-flex" aria-label="Global">
+            <a class="js-selected-navigation-item Header-link py-lg-3">&nbsp;</a>
+        </nav>
+        <div class="Header-item Header-item--full flex-justify-center d-lg-none position-relative" style="margin-right: auto;">
+            <a class="Header-link" href="https://Ahui517.github.io/" aria-label="Homepage"
+                data-ga-click="Header, go to dashboard, icon:logo">
+                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+                    width="32" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+            </a>
+        </div>
+        <div class="Header-item position-relative mr-0 d-none d-lg-flex">
+            <details class="details-overlay details-reset">
+                <summary class="Header-link" aria-label="View profile and more"
+                    data-ga-click="Header, show menu, icon:avatar">
+                    
+                    <img alt="" class="avatar" src="https://cdn.pixabay.com/photo/2020/08/07/21/53/sunset-5471699_960_720.jpg" height="20" width="20">
+                    
+                </summary>
+            </details>
+        </div>
+    </header>
+</div>
+
+<div id="start-of-content" class="show-on-focus"></div>
+<div id="js-flash-container">
+</div>
+
+  
+<div class="application-main " data-commit-hovercards-enabled="">
+    <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+        <main>
+            <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav pt-0 pt-lg-4 ">
+                <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
+                    <div class="mb-3 d-flex">
+                        <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
+                            <a class="avatar mr-1" href="https://Ahui517.github.io/about/">
+                                
+
+                                <img src="https://cdn.pixabay.com/photo/2020/08/07/21/53/sunset-5471699_960_720.jpg" width="26" height="26">
+                                
+                            </a>
+                            <span class="author"><a href="https://Ahui517.github.io/">辉</a></span>
+                            <span class="path-divider">/</span>
+                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
+                                    href="https://Ahui517.github.io/posts/js%E5%9F%BA%E7%A1%80/">js基础</a></strong>
+
+                            <div class="d-block text-small text-gray">
+                                Created <time-ago datetime="2020-10-15" class="no-wrap"
+                                    title="Created at 2020/10/15">
+                                    2020-10-15</time-ago>
+                                <span class="file-info-divider"></span>
+                                Modified <time-ago datetime="2020-10-15" class="no-wrap"
+                                    title="Modified  at 2020/10/15">
+                                    2020-10-15</time-ago>
+                            </div>
+                        </h1>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
+                <div class="repository-content ">
+                    <div class="Box mt-3 position-relative">
+                        <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
+                            <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                                2423 Words
+                                
+                            </div>
+                        </div>
+
+                        <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
+                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text"><h2 id="js基础知识">js基础知识</h2>
+<h4 id="11-js中的变量">1.1 js中的变量</h4>
+<blockquote>
+<p>与其他编程语言类似，如java</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>
+<span style="color:#75715e">//es
+</span></code></pre></div><h4 id="12-js中常见数据类型">1.2 js中常见数据类型</h4>
+<ul>
+<li>
+<p><code>基本数据类型</code></p>
+<ul>
+<li>
+<p>数字number</p>
+<pre><code>常规数字和NaN(NaN和任何值都不相等)
+
+检测一个数字是否为非有效数字 ```isNaN()```
+
+isNaN('ss') -&gt;ture
+
+isNaN('123')-&gt;false
+
+isNaN()方法先会检测是否为数字，不为数字则调用Number()方法转换为数字类型再进行检测
+
+Number(false)-&gt;0,Number(true)-&gt;1
+</code></pre>
+</li>
+<li>
+<p>字符串string</p>
+<pre><code>所有单引号，双引号，反引号包裹起来的
+</code></pre>
+</li>
+<li>
+<p>布尔boolean</p>
+<pre><code>true/false
+
+只有0、NaN、' '、undefined、null这个五转为boolean类型为0，其余为1
+</code></pre>
+</li>
+<li>
+<p>空指针null</p>
+</li>
+<li>
+<p>未定义undefined</p>
+</li>
+</ul>
+</li>
+<li>
+<p>引用数据类型</p>
+<ul>
+<li>
+<p>对象数据类型object</p>
+<p>{}普通对象</p>
+<p>[]数组对象</p>
+<p>Math数学函数对象</p>
+<p>正则对象</p>
+</li>
+</ul>
+<ul>
+<li>函数数据类型function</li>
+</ul>
+</li>
+</ul>
+<h4 id="13-js中数据类型检测">1.3 js中数据类型检测</h4>
+<ul>
+<li>
+<p>typeof[val] 用来检测数据类型的运算符</p>
+</li>
+<li>
+<p>instanceof 用来检测当前实例是否率属于某个类</p>
+</li>
+<li>
+<p>constructor 基于构造函数检测数据类型（也是基于类的方法）</p>
+</li>
+<li>
+<p>Object.prototype.toString.call() 监测数据类型最好的方法</p>
+</li>
+</ul>
+<h4 id="14-js中一些常见语法">1.4 js中一些常见语法</h4>
+<ul>
+<li>= 赋值符号</li>
+<li>== 相等号，返回bool类型，(如果左右两边数据类型不一样，默认转化为相同的类型，然后比较)</li>
+<li>=== 绝对等于(要求两边数据类型和值完全相等，返回bool类型)</li>
+</ul>
+<h4 id="15-js中的函数">1.5 js中的函数</h4>
+<blockquote>
+<p>js中函数的写法</p>
+</blockquote>
+<pre><code>    ```js中函数无需写出返回值类型```
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span>,<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span>){<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>)};
+<span style="color:#75715e">//js中的匿名函数
+</span><span style="color:#75715e"></span>document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#66d9ef">function</span>(){<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;this is body&#39;</span>)}
+<span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span>(){<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;123&#39;</span>)},<span style="color:#ae81ff">1000</span>)
+<span style="color:#75715e">//自执行函数
+</span><span style="color:#75715e"></span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>){<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">*</span><span style="color:#a6e22e">n</span>)})(<span style="color:#ae81ff">10</span>)
+</code></pre></div><h4 id="16-js中的常见对象">1.6 js中的常见对象</h4>
+<blockquote>
+<p>Math对象常用方法和属性</p>
+</blockquote>
+<pre><code>+ Math.abs():获取一个数的绝对值  （不是数字先调用Number()方法）
+</code></pre>
+<ul>
+<li>
+<p>Math.ceil():向上取整</p>
+</li>
+<li>
+<p>Math.floor():向下取整</p>
+</li>
+<li>
+<p>Math.round():四舍五入</p>
+</li>
+<li>
+<p>Math.max()  Math.min()  一堆数中最大值和最小值</p>
+</li>
+<li>
+<p>Math.sqrt()  开平方  Math.pow() 计算一个数的多少次幂</p>
+</li>
+<li>
+<p>Math.random() (0,1)随机小数</p>
+</li>
+<li>
+<p>获取[m,n]，Math.round(Math.random()*(n-m)+m)</p>
+</li>
+</ul>
+<blockquote>
+<p>日期对象</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">time</span><span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> Date();
+<span style="color:#75715e">//获取当前客户端的时间，本地时间
+</span></code></pre></div><ul>
+<li>getFullyear()  获取年</li>
+<li>getMonth()  获取月 从0开始</li>
+<li>getDate()  获取日</li>
+<li>getDay()  获取星期 从0开始(0代表周日)</li>
+<li>getHours()  获取小时</li>
+<li>getMinutes()  获取分钟</li>
+<li>getSeconds()  获取妙</li>
+<li>getMilliseconds()  获取毫秒</li>
+<li>getTime()  获取当前日期距离1970/1/1 00:00:00的毫秒差</li>
+<li>toLocaleDateString() 获取年月日</li>
+<li>toLocaleString()  获取年月日时分秒</li>
+</ul>
+<h4 id="17-数组及数组常见方法">1.7 数组及数组常见方法</h4>
+<blockquote>
+<p>数组是对象数据类型，特殊的对象</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">array</span><span style="color:#f92672">=</span>[<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">28</span>,<span style="color:#ae81ff">38</span>,<span style="color:#ae81ff">47</span>,];
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">dir</span>(<span style="color:#a6e22e">array</span>);
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * arr={
+</span><span style="color:#75715e"> *	  0:12,
+</span><span style="color:#75715e"> *    1:28,
+</span><span style="color:#75715e"> *	  2:38,
+</span><span style="color:#75715e"> *	  3:47,
+</span><span style="color:#75715e"> *	  length:4
+</span><span style="color:#75715e"> */</span>
+</code></pre></div><p><code>数组实现增删改查</code></p>
+<ol>
+<li>
+<p>push()  在数组的末尾进行添加，可以是多个；返回值是添加完元素后的长度。pop() 删除最后一项，并返回删除的那一项。</p>
+</li>
+<li>
+<p>unshift()  在数组的头部进行添加，可以是多个；返回值是添加完元素后的长度。shift() 删除第一项，并返回删除的那一项。</p>
+</li>
+<li>
+<p>splice()  实现数组的增删改：</p>
+<p>splice(m,n)：从索引m开始删除n个元素</p>
+<p>splice(n) 如果第二个参数n没写，就从索引m删除到最后</p>
+<p>splice(m,n,x) 删除索引m开始，n个元素，并将x放入删除元素的位置</p>
+<p>返回被删除元素组成的数组</p>
+</li>
+</ol>
+<p><code>数组拼接和查询</code></p>
+<pre><code>不会改变原数组
+</code></pre>
+<ol>
+<li>
+<p>slice(m,n)  查询索引m到n的值(不包括n)，并返回查询到的以数组返回，只写一个参数则是查询索引m到结尾处。</p>
+</li>
+<li>
+<p>concat(任意类型) 返回拼接后的新数组，不改变原数组</p>
+</li>
+</ol>
+<p><code>数组转化为字符串</code></p>
+<ol>
+<li>
+<p>toString()</p>
+</li>
+<li>
+<p>join() ,该方法可以指定一个分隔符，例如join(&lsquo;+&rsquo;)</p>
+<p>eval可以把字符串变为js表达式来执行</p>
+</li>
+</ol>
+<p><code>数组的一些其他方法</code></p>
+<ol>
+<li>
+<p>reverse()  反转原数组</p>
+</li>
+<li>
+<p>sort()  排序数组 改变原数组，按照每个元素的第一位进行排序</p>
+<p>sort((a,b)=&gt;a-b) :从小到大排序</p>
+</li>
+<li>
+<p>遍历数组</p>
+</li>
+</ol>
+<ul>
+<li>普通for循环</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span><span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]);
+}
+</code></pre></div><ul>
+<li>foreach</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">item</span>,<span style="color:#a6e22e">index</span>)=&gt;{
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;索引：&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">index</span>,<span style="color:#e6db74">&#34;内容&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">item</span>);
+})
+</code></pre></div><blockquote>
+<p>字符串操作</p>
+</blockquote>
+<pre><code>    字符串在js中是值，而不是一个对象
+</code></pre>
+<ol>
+<li>substr(n,m)  从索引n开始截取m个字符，m不写截取到末尾（后面方法也是）
+2. substring(n,m)  从索引n开始找到索引为m处(不含m)
+3. slice(n,m)  和substring一样，但是这个支持负数索引，负数索引就加上字符串长度
+4. toUpperCase()字符串转大写
+5. toLowerCase()字符串转小写l
+6. split([分隔符])  把字符串按指定分隔符拆分成数组(和数组中的join对应)
+7. replace(new,old)  实现字符串的替换(只替换一个)</li>
+</ol>
+<h4 id="18-js中的dom及其基本操作">1.8 js中的DOM及其基本操作</h4>
+<blockquote>
+<p>document object model 文档对象模型</p>
+</blockquote>
+<ul>
+<li>document.getElementById()  在文档中获取指定id元素对象</li>
+<li>[context].getElementsByTagName()  在指定容器中，通过标签获取一组元素集合</li>
+<li>[context].getElementsByClassName()  在指定容器中，通过样式名获取一组元素的集合</li>
+<li>document.getElementsByName()  在文档中，通过标签name属性获取一组节点集合。</li>
+<li>document.head/body/documentElement获取页面的头部/主体/全部</li>
+<li>[context].querySelector([selector])  在指定容器中，通过选择器获取指定元素对象</li>
+<li>[context].querySelectorAll([selector])  在指定容器中，通过选择器获取指定元素对象集合</li>
+</ul>
+<blockquote>
+<p>js中节点</p>
+<p>节点：Node</p>
+<p>节点集合：NodeList（getElementsByName/querySelectorAll都是获取节点集合）</p>
+</blockquote>
+<pre><code>    ```页面中所有东西都是节点```
+
+    **常见节点类型**
+</code></pre>
+<ul>
+<li>
+<p>元素节点</p>
+<ul>
+<li>nodeType:1</li>
+<li>nodeName:大写标签名</li>
+<li>nodeValue:null</li>
+</ul>
+</li>
+<li>
+<p>文本节点</p>
+<ul>
+<li>nodeType:3</li>
+<li>nodeName:'#text&rsquo;</li>
+<li>nodeValue:文本内容</li>
+</ul>
+</li>
+<li>
+<p>注释节点</p>
+<ul>
+<li>nodeType:8</li>
+<li>nodeName:'#comment&rsquo;</li>
+<li>nodeValue:注释类容</li>
+</ul>
+</li>
+<li>
+<p>文档节点</p>
+<ul>
+<li>nodeType:9</li>
+<li>nodeName:'#document&rsquo;</li>
+<li>nodeValue:null</li>
+</ul>
+<p><strong>描述节点之间关系的属性</strong></p>
+<ul>
+<li>childNodes:获取所有子节点</li>
+<li>chidren：获取所用元素子节点（子元素标签集合）</li>
+<li>firstChild：获取第一个子节点</li>
+<li>lastChild：获取最后一个子节点</li>
+<li>firstElementChild/lastElementChild：获取第一个/最后一个元素子节点</li>
+<li>previousSibling：获取上一个节点</li>
+<li>nextSibling：获取下一个节点</li>
+<li>parent：获取父节点</li>
+<li>previousElementSibling/nextElementSibling:获取上一个/下一个元素子节点</li>
+</ul>
+</li>
+</ul>
+<h4 id="19--js中动态增删元素">1.9  js中动态增删元素</h4>
+<p><code>createElement创建元素对象</code></p>
+<p><code>createTextNode</code>创建文本对象</p>
+<p><code>appendChild</code>把元素添加到容器末尾</p>
+<p><code>insertBefore</code>把元素添加到指定容器指定元素前面</p>
+<p><code>cloneNode(true/false)</code>克隆元素或者节点</p>
+<p><code>容器.removeChild(元素)</code>移除元素</p>
+<p><strong>自定义属性：setAttribute(&lsquo;k&rsquo;,v)获取属性：getAttribute(&lsquo;k&rsquo;)  这种方式是将属性写到标签上  removeAttribute(&lsquo;k&rsquo;)</strong></p>
+</article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<div class="utterances"></div>
+
+<script>
+    var systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    var systemTheme = systemThemeMediaQuery.matches ? 'dark' : 'light';
+    var utterancesTheme = systemTheme === 'dark' ? 'github-dark' : 'github-light';
+    var utterancesScript = document.createElement('script');
+    utterancesScript.src = 'https://utteranc.es/client.js';
+    utterancesScript.setAttribute('repo', 'Ahui517\/AHui517.github.io');
+    utterancesScript.setAttribute('issue-term', 'title');
+    utterancesScript.setAttribute('theme', utterancesTheme);
+    utterancesScript.setAttribute('crossorigin', 'anonymous');
+    utterancesScript.setAttribute('async', '');
+    document.querySelector('.utterances').appendChild(utterancesScript);
+</script>
+<noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  <div class="footer container-lg width-full p-responsive" role="contentinfo">
+    <div
+        class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+        <ul
+            class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+            <li class="mr-3 mr-lg-0">© 2020. Theme by <a href="https://github.com/MeiK2333/github-style"><span>github-style</span></a></a></li>
+        </ul>
+
+        <a aria-label="Homepage" title="GitHub Style" class="footer-octicon d-none d-lg-block mx-lg-4"
+            href="https://Ahui517.github.io/">
+            <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24"
+                aria-hidden="true">
+                <path fill-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                </path>
+            </svg>
+        </a>
+        <ul
+            class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+        </ul>
+    </div>
+    <div class="d-flex flex-justify-center pb-6">
+        <span class="f6 text-gray-light"></span>
+    </div>
+</div>
+
+<script crossorigin="anonymous"
+    type="application/javascript" src="https://Ahui517.github.io/js/frameworks.js"></script>
+
+<script crossorigin="anonymous"
+    type="application/javascript" src="https://Ahui517.github.io/js/github-bootstrap.js"></script>
+<script src="https://Ahui517.github.io/js/stop.js"></script>
+<script src="https://Ahui517.github.io/js/contributions.js"></script>
+
+</body>
+
+</html>
